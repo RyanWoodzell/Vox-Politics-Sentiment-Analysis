@@ -1,4 +1,4 @@
-package org.example;
+package main;
 import org.jsoup.*;
 import org.jsoup.nodes.*;
 import org.jsoup.select.*;
@@ -8,17 +8,15 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-import edu.stanford.nlp.pipeline.*;
-import edu.stanford.nlp.ling.CoreAnnotations;
-import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
-import edu.stanford.nlp.util.CoreMap;
-import java.util.*;
-
 
 public class Scraper {
     //necessary fields
+
+    //temp fields to add to ArrayLists
     String text;
     String pageTitle;
+
+    // HashSet used to track visited Urls
     public Set<String> visitedUrls = new HashSet<>();
 
     //ArrayList fields that contain gathered data
@@ -46,11 +44,11 @@ public class Scraper {
         //body element to retrieve paragraph element
         Element body = document.body();
 
-
+        //get the title from the header
         Elements title = head.getElementsByTag("title");
 
-
-        boolean firstTitle = true;//necessary to prevent repetition of titles
+        //necessary to prevent repetition of titles
+        boolean firstTitle = true;
 
         //add the title of the article to list of titles
         for (Element element : title) {
@@ -70,13 +68,14 @@ public class Scraper {
                 text = paragraph.text() + " ";
                 firstLine = false;
             }else{
-            text = text + paragraph.text() + " ";
+                text = text + paragraph.text() + " ";
                 //System.out.println(paragraph.text());
             }
         }
-        //Vox has a box to sign up, this would be on every article if I didn't take it out.
+        //Vox places this in p in each article. Would be in every article if not removed.
         text = text.replace("The US presidential campaign is in its final weeks and we’re dedicated to helping you understand the stakes. In this election cycle, it’s more important than ever to provide context beyond the headlines. But in-depth reporting is costly, so to continue this vital work, we have an ambitious goal to add 5,000 new members. We rely on readers like you to fund our journalism. Will you support our work and become a Vox Member today?", "");
         text = text.replace("© 2024 Vox Media, LLC. All Rights Reserved ", "");
+
         //add text to arraylist of texts
         texts.add(text);
     }
@@ -99,15 +98,17 @@ public class Scraper {
         //add every link on the new articles part of vox politics.
         for (Element link : links) {
 
-            //prevent repition of the same link
+            //prevent repetition of the same link
             if(firstLink) {
                 firstLink = false;
                 continue;
             }
+
             //gather links
             urls.add(link.absUrl("href"));
         }
-}
+    }
+
     //parse every url scraped by parseUrls()
     public void parseArticles() throws IOException {
         for (String Url : urls) {
@@ -115,9 +116,7 @@ public class Scraper {
         }
     }
 
-
-
-
+    //getter methods
 
     //get text from specified number article
     public String getText(){
