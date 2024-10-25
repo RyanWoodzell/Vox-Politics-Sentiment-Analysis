@@ -2,9 +2,20 @@
 
 ## A fully functional web-scraping and NLP fundamentals project written in java
 
-This project employs jsoup API to scrape all links from the most recent Vox Political articles. It then offers each article title to the user, and allows the user to select a chosen article. After the article is selected, the project employs the Stanford CoreNLP API to determine the sentiments of each sentence, creating a sentiment judgement for the chosen article.\
+This project employs jsoup API to scrape all links from the most recent Vox Political articles. It then offers each article title to the user, and allows the user to select a chosen article. After the article is selected, the project employs the Stanford CoreNLP API to determine the sentiments of each sentence, creating a sentiment judgement for the chosen article.
+
+Example Run: The program is run, and demonstrates all articles on the Vox Politics page to the User. 
+
+![Woody's Vox Scraper](https://github.com/user-attachments/assets/464520df-ee43-4f2c-a299-7510aa1f8959)
+
+The user then selects and article, it is then parsed and a sentiment judgement is created using nlp.sentimentAnalysis(). 
+
+The output is then given to the user. 
+
+![Screenshot 2024-10-25 121521](https://github.com/user-attachments/assets/a90b9ad3-2753-4f84-98d0-aedfa61f91a7)
 
 ## Lessons Learned:
+
 
   -  In making this project, I learned a lot about using different API's in java. Previously, I had a hard time importing open source code into my projects, and using it in said project. This project was a great introduction to using other open-sourced tools.
   -  This was my first time working with Stanford CoreNLP, and my first introduction to Natural Language Processing. This field is a newfound fascination of mine. I am extremely interested in learning more about machine learning and the capabilities of NLP.
