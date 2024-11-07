@@ -31,4 +31,4 @@ The output is then given to the user.
 
 ## The Future!
 
-To further develop this project, I am beginning a stanford machine learning class, to work towards machine learning with NLP. This will vastly expand my horizons with Stanford CoreNLP. Another goal of mine is to increase the efficiency of the program. It works well, but not very fast. I am currently researching possible oppurtunities to make the program as efficient as possible.  
+To further develop this project, I am beginning a stanford machine learning class, to work towards machine learning with NLP. This will vastly expand my horizons with Stanford CoreNLP. Another goal of mine is to increase the efficiency of the program. It works well, but not very fast. I am currently researching possible opportunities to make the program as efficient as possible.  
