@@ -10,7 +10,7 @@ import java.util.Set;
 
 
 public class Scraper {
-    //necessary fields
+
 
     //temp fields to add to ArrayLists
     String text;
